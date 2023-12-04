@@ -12,6 +12,4 @@ ProStart is your comprehensive extension that equips you with the tools and info
 
 > Search the web with a powerful search bar.
 
-```bash
 ProStart is designed to help you get the most out of your browsing experience. It's the perfect way to stay organized, informed, and connected.
-```
