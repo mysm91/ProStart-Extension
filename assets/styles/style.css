@@ -67,16 +67,6 @@ main {
   gap: 16px;
 }
 
-.time-weather {
-  grid-area: Time-and-Weather;
-  background-color: blue;
-}
-
-.search-bookmarks {
-  grid-area: Search-and-Bookmarks;
-  background-color: green;
-}
-
 .to-do {
   grid-area: Todo;
   background-color: white;
@@ -101,8 +91,10 @@ main {
 
 .to-do-header span {
   font-size: 1rem;
+  font-weight: bold;
   padding: 10px;
-  background-color: rgba(128, 128, 128, 0.3);
+  color: #3d518f;
+  background-color: rgba(128, 128, 128, 0.15);
   border-radius: 8px;
 }
 
@@ -132,6 +124,7 @@ main {
 .to-do-delete-icon {
   position: absolute;
   left: 4px;
+  font-size: 1.3rem;
   color: rgba(128, 128, 128, 0.6);
   cursor: pointer;
 }
@@ -176,4 +169,93 @@ main {
 
 .to-do-input-form span::placeholder {
   color: rgba(128, 128, 128, 0.3);
+}
+
+.time-weather {
+  grid-area: Time-and-Weather;
+  background-color: blue;
+}
+
+.search-bookmarks {
+  grid-area: Search-and-Bookmarks;
+}
+
+.search-wrapper {
+  position: relative;
+  background-color: white;
+  border-radius: 24px;
+  margin-bottom: 10px;
+}
+
+.search-form {
+  padding: 25px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 13px;
+  font-size: 1rem;
+  padding-right: 40px;
+  border-radius: 24px;
+  border: none;
+  outline: 0;
+  background-color: #f3f4f6;
+}
+
+.search-input::placeholder {
+  font-size: 1rem;
+}
+
+.search-logo {
+  height: 27px;
+  width: 27px;
+  position: absolute;
+  right: 32px;
+  top: 37px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 32px;
+  top: 33px;
+  color: white;
+  background-color: #3d518f;
+  padding: 5px 12px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.bookmarks-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.bookmark-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 82px;
+  height: 82px;
+  background-color: white;
+  border-radius: 16px;
+  border: 1px solid white;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.bookmark-item:hover {
+  border: 1px solid #3d518f;
+}
+
+.bookmark-item span {
+  color: #babdc6;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.bookmark-item img {
+  width: 35px;
+  height: 35px;
 }
