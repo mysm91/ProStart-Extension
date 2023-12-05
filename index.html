@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link rel="icon" href="./assets/images/favicon.webp" />
     <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
   <body>
@@ -21,7 +22,7 @@
       <main>
         <section class="to-do">
           <header class="to-do-header">
-            <h3>دست‌نویس</h3>
+            <h1>دست‌نویس</h1>
             <span class="material-symbols-outlined"> visibility_off </span>
           </header>
           <div class="to-do-list-wrapper">
@@ -67,7 +68,7 @@
               />
             </form>
             <img
-              src="./assets/images/goolge.png"
+              src="./assets/images/google.svg"
               alt="Google"
               class="search-logo"
             />
@@ -138,7 +139,51 @@
             </div>
           </div>
         </section>
-        <section class="time-weather"></section>
+        <section class="time-weather">
+          <div class="time-wrapper">
+            <h2 class="time-digits">22:31</h2>
+            <span class="today-date-farsi">11 آذر</span>
+            <div class="date-other-languages-wrapper">
+              <div class="today-date-arabic">18/رجب/1445</div>
+              <div class="time-vertical-bar"></div>
+              <div class="today-date-christian">2023/Dec/2</div>
+            </div>
+            <div class="timer-praying-timetable-wrapper">
+              <select name="timer" class="timer">
+                <option value="تایمر">تایمر</option>
+              </select>
+              <select name="oghat" class="praying-timetable">
+                <option value="oghat">اوقات شرعی</option>
+              </select>
+            </div>
+          </div>
+          <div class="weather-wrapper">
+            <div class="temperature-wrapper">
+              <h2 class="temperature-digits">12°</h2>
+              <div class="temperature-emoji">❄️</div>
+            </div>
+            <div class="temperature-description-wrapper">
+              <div class="temperature-description-text">
+                بس ناجوانمردانه سرد
+              </div>
+              <div class="temperature-description-emoji">☕️</div>
+            </div>
+            <div class="temperature-min-max-wrapper">
+              <div class="max-temperature-wrapper">
+                <span class="max-temperature-digits">13°</span>
+                <span class="max-temperature-text">حداکثر</span>
+              </div>
+              <div class="min-max-separator">.</div>
+              <div class="min-temperature-wrapper">
+                <span class="min-temperature-digits">12°</span>
+                <span class="min-temperature-text">حداقل</span>
+              </div>
+            </div>
+            <select name="forecast" class="temperature-forecast">
+              <option value="forecast">پیش‌بینی</option>
+            </select>
+          </div>
+        </section>
       </main>
     </div>
   </body>

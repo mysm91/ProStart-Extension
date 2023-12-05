@@ -1,7 +1,4 @@
-@font-face {
-  font-family: vazirmatn;
-  src: url(./../fonts/Vazirmatn-VariableFont_wght.ttf);
-}
+@import url(./fonts.css);
 
 /* css reset */
 *,
@@ -14,12 +11,12 @@
 
 body {
   background-color: #c4def7;
-  font-family: vazirmatn;
+  font-family: "vazirmatn";
   direction: rtl;
 }
 
 input {
-  font-family: vazirmatn;
+  font-family: "vazirmatn";
 }
 
 ul,
@@ -171,11 +168,6 @@ main {
   color: rgba(128, 128, 128, 0.3);
 }
 
-.time-weather {
-  grid-area: Time-and-Weather;
-  background-color: blue;
-}
-
 .search-bookmarks {
   grid-area: Search-and-Bookmarks;
 }
@@ -266,4 +258,127 @@ main {
 .bookmark-item img {
   width: 35px;
   height: 35px;
+}
+
+.time-weather {
+  grid-area: Time-and-Weather;
+  display: flex;
+  background-color: white;
+  height: 285px;
+  border-radius: 24px;
+}
+
+.time-wrapper,
+.weather-wrapper {
+  height: 220px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  padding: 10px;
+}
+
+.time-wrapper {
+  border-left: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.time-wrapper,
+.weather-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.time-digits {
+  color: #266df7;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.today-date-farsi {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.date-other-languages-wrapper,
+.temperature-min-max-wrapper {
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
+  color: #9da0af;
+  gap: 5px;
+}
+
+.date-other-languages-wrapper {
+  font-size: 0.7rem;
+}
+
+.time-vertical-bar {
+  height: 10px;
+  border-left: 1px solid #9da0af;
+}
+
+.timer-praying-timetable-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.timer,
+.praying-timetable,
+.temperature-forecast {
+  font-family: "vazirmatn";
+  font-weight: 500;
+  color: #535c80;
+  border-radius: 24px;
+  border: 1px solid #e0e0e0;
+  outline: 0;
+  padding: 3px 0;
+}
+
+.temperature-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+
+.temperature-digits {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #9da0af;
+}
+
+.temperature-emoji {
+  font-size: 1.5rem;
+}
+
+.temperature-description-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.temperature-description-text {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.temperature-min-max-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.temperature-min-max-wrapper {
+  font-size: 0.9rem;
+}
+
+.max-temperature-wrapper,
+.min-temperature-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
 }
