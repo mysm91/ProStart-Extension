@@ -119,6 +119,7 @@ main {
 
 .to-do-item input {
   cursor: pointer;
+  background-color: #3d518f;
 }
 
 .to-do-delete-icon {
@@ -249,10 +250,18 @@ main {
   border: 1px solid #3d518f;
 }
 
-.bookmark-item span {
-  color: #babdc6;
+.bookmark-item .bookmark-apps,
+.bookmark-item .add-new-bookmark {
   font-size: 1.8rem;
   font-weight: bold;
+}
+
+.bookmark-item .bookmark-apps {
+  color: #3d518f;
+}
+
+.bookmark-item .add-new-bookmark {
+  color: #babdc6;
 }
 
 .bookmark-item img {
