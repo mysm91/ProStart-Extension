@@ -44,10 +44,15 @@ a {
 }
 
 .app-navbar a {
-  padding: 0 5px;
+  padding-right: 10px;
   font-size: 2rem;
   color: white;
   display: flex;
+  transition: 0.5s;
+}
+
+.app-navbar a:hover {
+  color: #3d518f;
 }
 
 .app-navbar span {
@@ -58,14 +63,15 @@ main {
   width: 100%;
   height: calc(100vh - 100px);
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: max(1fr);
   grid-template-areas: "Todo Search-and-Bookmarks Time-and-Weather";
   gap: 16px;
 }
 
 .to-do {
   grid-area: Todo;
+  height: 100%;
   background-color: white;
   border-radius: 24px;
   display: flex;
@@ -97,8 +103,13 @@ main {
 
 .to-do-list-wrapper {
   height: 100%;
-  padding: 10px;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 8px;
+}
+
+.to-do-list {
+  max-height: calc(100vh - 240px);
+  /* background-color: red; */
+  overflow: auto;
 }
 
 .to-do-item {
@@ -108,29 +119,58 @@ main {
   align-items: center;
   gap: 10px;
   border: 1px solid rgba(128, 128, 128, 0.3);
-  padding: 4px;
-  margin-bottom: 10px;
+  padding: 5px;
   border-radius: 12px;
   font-size: 1rem;
 }
 
-.to-do-item input {
-  cursor: pointer;
+.to-do-item:not(:last-child) {
+  margin-bottom: 9px;
 }
 
-.to-do-delete-icon {
+.to-do-box {
+  width: 18px;
+  height: 18px;
+  background-color: #cef0d9;
+  border: 1px solid #60ce83;
+  border-radius: 4px;
+}
+
+.to-do-icon-wrapper {
   position: absolute;
   left: 4px;
-  font-size: 1.3rem;
+  display: flex;
+  gap: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.to-do-delete-icon,
+.to-do-edit-icon {
+  font-size: 1.5rem;
   color: rgba(128, 128, 128, 0.6);
+  padding: 5px 0;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.to-do-delete-icon:hover,
+.to-do-edit-icon:hover {
+  color: rgba(128, 128, 128, 0.9);
+}
+
+.to-do-item:hover .to-do-icon-wrapper {
+  visibility: visible;
+  opacity: 1;
 }
 
 .to-do-title {
   max-width: 50%;
   display: inline-block;
+  white-space: nowrap;
   overflow-x: hidden;
-  text-wrap: nowrap;
+  text-overflow: ellipsis;
   font-size: 1rem;
 }
 
@@ -138,6 +178,7 @@ main {
   width: 100%;
   padding: 10px;
   margin: 0 auto;
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
 }
 
 .to-do-input-form {
@@ -154,18 +195,58 @@ main {
   border: 1px solid rgba(128, 128, 128, 0.3);
 }
 
-.to-do-input-form span {
+.add-task-button {
+  width: 33px;
+  height: 33px;
   position: absolute;
-  left: 4%;
-  top: 10%;
-  padding: 0 3px;
-  color: rgba(128, 128, 128, 0.6);
-  background-color: white;
+  left: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+}
+
+.add-task-icon {
+  color: rgba(128, 128, 128, 0.6);
+}
+
+.add-task-button:hover .add-task-icon {
+  color: rgb(128, 128, 128);
 }
 
 .to-do-input-form span::placeholder {
   color: rgba(128, 128, 128, 0.3);
+}
+
+.to-do-alert-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  width: 95%;
+  padding: 5px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.to-do-alert-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.to-do-alert-icon {
+  color: red;
 }
 
 .search-bookmarks {
@@ -204,6 +285,22 @@ main {
   position: absolute;
   right: 32px;
   top: 37px;
+}
+
+.google-blue-path {
+  fill: #4285f4;
+}
+
+.google-green-path {
+  fill: #34a853;
+}
+
+.google-yellow-path {
+  fill: #fbbc05;
+}
+
+.google-red-path {
+  fill: #eb4335;
 }
 
 .search-icon {
@@ -260,6 +357,15 @@ main {
   height: 35px;
 }
 
+.bookmark-item p {
+  width: 100%;
+  padding: 0 5px;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
 .time-weather {
   grid-area: Time-and-Weather;
   display: flex;
@@ -272,7 +378,7 @@ main {
 .weather-wrapper {
   height: 220px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.1);
-  padding: 10px;
+  padding: 10px 6px;
 }
 
 .time-wrapper {
@@ -381,4 +487,28 @@ main {
   justify-content: center;
   align-items: center;
   gap: 3px;
+}
+
+/* Scroll bar style */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+::-webkit-scrollbar-track {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(to right bottom, #c4def7, #c4def7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(128, 128, 128);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #535c80;
 }
