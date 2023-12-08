@@ -5,33 +5,46 @@ const toDoForm = toDo.querySelector(".to-do-input-form");
 const toDoInput = toDo.querySelector(".to-do-input");
 const toDoAlert = toDo.querySelector(".to-do-alert-wrapper");
 
+const tasks = oldItems(); // Check local storage as the page loads
+let taskId;
+
 // Add a new task
 toDoForm.addEventListener("submit", (e) => {
   e.preventDefault();
   taskRender();
   toDoInput.value = "";
+  toDoInput.focus();
 });
 
 // Validation of input value and render task
 function taskRender() {
   const taskInputValue = toDoInput.value.trim();
+  setTaskId();
 
   if (!taskInputValue) {
     toDoAlertHandler();
   } else {
-    crateTaskElement(taskInputValue);
+    crateTaskElement(taskInputValue, taskId);
+    addTaskToStorage(taskInputValue);
   }
 }
 
 // Delete a task
 toDo.addEventListener("click", (e) => {
   if (e.target.classList.contains("to-do-delete-icon")) {
+    const datasetId = e.target.dataset.id;
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id == datasetId) {
+        tasks.splice(i, 1);
+      }
+      localStorage.setItem("toDoItems", JSON.stringify(tasks));
+    }
     e.target.parentElement.parentElement.remove();
   }
 });
 
 // Create task element
-function crateTaskElement(taskTitle) {
+function crateTaskElement(taskTitle, taskId) {
   const createTaskItem = document.createElement("li");
   const createTaskBox = document.createElement("div");
   const createTasKTitle = document.createElement("span");
@@ -53,6 +66,8 @@ function crateTaskElement(taskTitle) {
     "to-do-delete-icon"
   );
 
+  createDeleteIcon.setAttribute("data-id", taskId);
+
   toDoList.prepend(createTaskItem);
   createTaskItem.append(createTaskBox);
   createTaskItem.append(createTasKTitle);
@@ -73,4 +88,36 @@ function toDoAlertHandler() {
     toDoAlert.style.opacity = "0";
     toDoAlert.style.transform = "translateY(0)";
   }, 3000);
+}
+
+// Save added task to the Local Storage
+function addTaskToStorage(currentTaskTitle) {
+  setTaskId();
+  const newTaskItem = {
+    id: taskId,
+    title: currentTaskTitle,
+  };
+
+  tasks.push(newTaskItem);
+  localStorage.setItem("toDoItems", JSON.stringify(tasks));
+}
+
+// Load tasks from Local Storage
+function oldItems() {
+  let oldTasks = JSON.parse(localStorage.getItem("toDoItems"));
+  if (oldTasks == null) {
+    return [];
+  }
+  return oldTasks;
+}
+
+// Render loaded tasks from local storage into DOM
+for (let task of tasks) {
+  crateTaskElement(task.title, task.id);
+}
+
+// Assign ID for each task based on current time for each task
+function setTaskId() {
+  let uniqueId = new Date();
+  taskId = Math.ceil(uniqueId.getTime() / 100);
 }
