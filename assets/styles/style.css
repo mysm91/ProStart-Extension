@@ -31,7 +31,7 @@ a {
 
 .container {
   max-width: 1124px;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0 auto;
 }
 
@@ -61,12 +61,13 @@ a {
 
 main {
   width: 100%;
-  height: calc(100vh - 100px);
+  /* height: calc(100vh - 100px); */
+  height: 540px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
-  grid-template-rows: max(1fr);
+  /* grid-template-rows: max(1fr); */
   grid-template-areas: "Todo Search-and-Bookmarks Time-and-Weather";
-  gap: 16px;
+  gap: 8px;
 }
 
 .to-do {
@@ -107,7 +108,8 @@ main {
 }
 
 .to-do-list {
-  max-height: calc(100vh - 240px);
+  /* max-height: calc(100vh - 240px); */
+  max-height: 460px;
   /* background-color: red; */
   overflow: auto;
 }
@@ -136,18 +138,34 @@ main {
   border-radius: 4px;
 }
 
-.to-do-icon-wrapper {
+.to-do-delete-icon {
   position: absolute;
   left: 4px;
   display: flex;
+  align-items: center;
   gap: 5px;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
+  /* z-index: 1; */
 }
 
-.to-do-delete-icon,
-.to-do-edit-icon {
+.to-do-delete-operation {
+  position: absolute;
+  left: 26px;
+  display: flex;
+  gap: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: 0.5s;
+}
+
+.show-delete-option {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.to-do-delete-icon {
   font-size: 1.5rem;
   color: rgba(128, 128, 128, 0.6);
   padding: 5px 0;
@@ -155,14 +173,25 @@ main {
   transition: 0.5s;
 }
 
-.to-do-delete-icon:hover,
-.to-do-edit-icon:hover {
-  color: rgba(128, 128, 128, 0.9);
+.to-do-delete-icon:hover {
+  color: rgb(92, 91, 91);
 }
 
-.to-do-item:hover .to-do-icon-wrapper {
+.to-do-item:hover .to-do-delete-icon {
   visibility: visible;
   opacity: 1;
+}
+
+.task-delete-confirm,
+.task-delete-cancel {
+  padding: 2px;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.task-delete-confirm:hover,
+.task-delete-cancel:hover {
+  background-color: #cef0d9;
 }
 
 .to-do-title {
@@ -369,6 +398,7 @@ main {
 .time-weather {
   grid-area: Time-and-Weather;
   display: flex;
+  justify-content: center;
   background-color: white;
   height: 285px;
   border-radius: 24px;
@@ -379,6 +409,10 @@ main {
   height: 220px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.3);
   padding: 10px 6px;
+}
+
+.time-weather-error {
+  text-align: center;
 }
 
 .time-wrapper {
@@ -395,16 +429,16 @@ main {
 
 .time-digits {
   color: #266df7;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 900;
 }
 
-.today-date-farsi {
-  font-size: 1.2rem;
-  font-weight: 800;
+.date-shamsi {
+  font-size: 1rem;
+  font-weight: 900;
 }
 
-.date-other-languages-wrapper,
+.date-other-calendar-wrapper,
 .temperature-min-max-wrapper {
   display: flex;
   align-items: flex-start;
@@ -413,7 +447,7 @@ main {
   gap: 5px;
 }
 
-.date-other-languages-wrapper {
+.date-other-calendar-wrapper {
   font-size: 0.7rem;
 }
 
@@ -450,25 +484,37 @@ main {
 }
 
 .temperature-digits {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 900;
   color: #9da0af;
 }
 
+.temperature-emoji-wrapper {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
 .temperature-emoji {
-  font-size: 1.5rem;
+  position: absolute;
+  right: -10px;
+  top: -8px;
 }
 
 .temperature-description-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 3px;
 }
 
 .temperature-description-text {
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 900;
+}
+
+.temperature-description-emoji {
+  font-size: 1rem;
 }
 
 .temperature-min-max-wrapper {
@@ -486,7 +532,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
 }
 
 /* Scroll bar style */
