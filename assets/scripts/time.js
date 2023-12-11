@@ -13,7 +13,7 @@ const fetchTimeAndDate = async () => {
   } catch (error) {
     console.log(error);
     timeAndDateSection.innerHTML =
-      '<p class="time-weather-error">متاسفاته در حال حاضر اطلاعات مربوط به زمان و تقویم در دسترس نمی‌باشد 😟</p>';
+      '<p class="time-weather-error">متاسفانه در حال حاضر اطلاعات مربوط به زمان و تقویم در دسترس نمی‌باشد 😟</p>';
   }
 };
 

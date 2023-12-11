@@ -87,10 +87,13 @@ a {
 main {
   width: 100%;
   height: calc(100vh - 100px);
-  max-height: 540px;
+  max-height: 670px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
-  grid-template-areas: "Todo Search-and-Bookmarks Time-and-Weather";
+  grid-template-rows: 1fr 10fr;
+  grid-template-areas:
+    "Todo Search Time-and-Weather"
+    "Todo Bookmarks Time-and-Weather";
   gap: var(--large-gap);
 }
 
@@ -135,7 +138,7 @@ main {
 
 .to-do-list {
   height: calc(100vh - 225px);
-  max-height: 500px;
+  max-height: 540px;
   overflow: auto;
 }
 
@@ -302,15 +305,15 @@ main {
   color: #ff0000;
 }
 
-.search-bookmarks {
+/* .search-bookmarks {
   grid-area: Search-and-Bookmarks;
-}
+} */
 
 .search-wrapper {
+  grid-area: Search;
   position: relative;
   background-color: var(--primary-color);
   border-radius: var(--extra-large-border-radius);
-  margin-bottom: 10px;
 }
 
 .search-form {
@@ -368,8 +371,10 @@ main {
 }
 
 .bookmarks-wrapper {
+  grid-area: Bookmarks;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: max-content;
   gap: var(--large-gap);
 }
 
@@ -422,7 +427,7 @@ main {
 .time-weather {
   grid-area: Time-and-Weather;
   background-color: var(--primary-color);
-  height: 289px;
+  height: 287px;
   border-radius: var(--extra-large-border-radius);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -601,18 +606,31 @@ main {
 
   main {
     width: 100%;
+    height: calc(100vh - 100px);
+    max-height: 670px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+    grid-template-rows: 1fr 10fr;
     grid-template-areas:
-      "Search-and-Bookmarks Search-and-Bookmarks"
+      "Todo Search Time-and-Weather"
+      "Todo Bookmarks Time-and-Weather";
+    gap: var(--large-gap);
+  }
+
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "Search Search"
+      "Bookmarks Bookmarks"
       "Todo Time-and-Weather";
-    gap: 16px;
+    height: auto;
+    margin-bottom: 0px;
+    gap: 8px;
   }
 
   .search-form {
     padding: 20px;
-    margin-bottom: 16px;
   }
 
   .search-input {
@@ -639,6 +657,7 @@ main {
 
   .bookmark-item {
     width: auto;
+    height: 80px;
   }
 
   .bookmark-item .bookmark-apps,
@@ -656,8 +675,11 @@ main {
   }
 
   .to-do {
-    height: 375px;
-    padding-bottom: 50px;
+    height: 300px;
+  }
+
+  .to-do-header {
+    padding: 0.5rem;
   }
 
   .to-do-header h1 {
@@ -665,7 +687,7 @@ main {
   }
 
   .to-do-list {
-    height: 250px;
+    height: 182px;
   }
 
   .to-do-title {
@@ -690,13 +712,79 @@ main {
   }
 
   .time-weather {
-    height: 375px;
-    padding-bottom: 50px;
+    height: 300px;
+  }
+
+  .time-digits,
+  .temperature-digits {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .temperature-emoji-wrapper img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .temperature-emoji {
+    top: -2px;
   }
 }
 
 @media (max-width: 1024px) {
   .container {
     max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 470px;
+  }
+
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "Search"
+      "Time-and-Weather"
+      "Bookmarks"
+      "Todo";
+    gap: 16px;
+  }
+
+  .search-wrapper {
+    grid-area: Search;
+  }
+
+  .time-weather {
+    grid-area: Time-and-Weather;
+  }
+
+  .bookmarks-wrapper {
+    grid-area: Bookmarks;
+  }
+
+  .bookmarks-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .to-do {
+    grid-area: Todo;
+    height: 478px;
+  }
+
+  .to-do-list {
+    height: 360px;
+  }
+
+  .to-do-item {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 95%;
   }
 }
