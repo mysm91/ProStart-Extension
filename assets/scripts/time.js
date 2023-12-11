@@ -41,16 +41,16 @@ function renderTimeAndDate(data) {
   const hijriYear = hijriYearFull.substring(0, 4);
 
   timeAndDateSection.innerHTML = `
-                                <h2 class="time-digits">${msToTime(
+                                <h2 class="time-digits d-flex">${msToTime(
                                   currentTimeZone
                                 )}</h2>
                                 <span class="date-shamsi">${shamsiDay} ${shamsiMonth}</span>
-                                <div class="date-other-calendar-wrapper">
+                                <div class="date-other-calendar-wrapper d-flex">
                                     <span class="date-hijri">${hijriDay}/${hijriMonth}/${hijriYear}</span>
                                     <span class="time-vertical-bar"></span>
                                     <div class="date-christian">${christianYear}/${christianMonth}/${christianDay}</div>
                                 </div>
-                                <div class="timer-praying-timetable-wrapper">
+                                <div class="timer-praying-timetable-wrapper d-flex">
                                     <select name="timer" class="timer">
                                       <option value="تایمر">تایمر</option>
                                     </select>
@@ -72,4 +72,4 @@ function msToTime(duration) {
 }
 
 setTimeout(fetchTimeAndDate, 0); // Execute the function as the page loads
-setInterval(fetchTimeAndDate, 1000); // Refresh time and date data every second
+// setInterval(fetchTimeAndDate, 1000); // Refresh time and date data every second

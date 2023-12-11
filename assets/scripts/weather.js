@@ -33,23 +33,23 @@ function renderWeather(data) {
   const minTempRound = Math.round(min);
 
   weatherSection.innerHTML = `
-                            <div class="temperature-wrapper">
-                                <h2 class="temperature-digits">${currentTempRound}°</h2>
+                            <div class="temperature-wrapper d-flex">
+                                <h2 class="temperature-digits d-flex">${currentTempRound}°</h2>
                                 <div class="temperature-emoji-wrapper">${weatherIcon(
                                   icon
                                 )}</div>
                             </div>
-                            <div class="temperature-description-wrapper">
+                            <div class="temperature-description-wrapper d-flex">
                                 <div class="temperature-description-text">${descriptionText}</div>
                                 <div class="temperature-description-emoji">${descriptionEmoji}</div>
                                 </div>
-                                <div class="temperature-min-max-wrapper">
-                                <div class="max-temperature-wrapper">
+                                <div class="temperature-min-max-wrapper d-flex">
+                                <div class="max-temperature-wrapper d-flex">
                                     <span class="max-temperature-digits">${maxTempRound}°</span>
                                     <span class="max-temperature-text">حداکثر</span>
                                 </div>
                                 <div class="min-max-separator">.</div>
-                                <div class="min-temperature-wrapper">
+                                <div class="min-temperature-wrapper d-flex">
                                     <span class="min-temperature-digits">${minTempRound}°</span>
                                     <span class="min-temperature-text">حداقل</span>
                                 </div>
