@@ -1,0 +1,153 @@
+/* Desktops and large screens*/
+@media (max-width: 1200px) {
+  .container {
+    max-width: 950px;
+  }
+
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: max-content;
+    grid-template-areas:
+      "Search Search"
+      "Bookmarks Bookmarks"
+      "Todo Time-and-Weather";
+    height: auto;
+    gap: var(--large-gap);
+  }
+
+  .search-form {
+    padding: 1.25rem;
+  }
+
+  .search-input {
+    padding: 0.75rem;
+    font-size: var(--small-font-size);
+    font-weight: 300;
+    padding-right: 2.5rem;
+  }
+
+  .search-input::placeholder {
+    font-size: var(--small-font-size);
+    font-weight: 300;
+  }
+
+  .search-logo {
+    height: 22px;
+    width: 22px;
+    top: 34px;
+  }
+
+  .search-icon {
+    top: 26px;
+  }
+
+  .bookmark-item {
+    width: auto;
+    height: 80px;
+  }
+
+  .bookmark-item .bookmark-apps,
+  .bookmark-item .add-new-bookmark {
+    font-size: var(--extra-large-font-size);
+  }
+
+  .bookmark-item img,
+  .add-task-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bookmark-item p {
+    font-size: var(--extra-small-font-size);
+  }
+
+  .to-do,
+  .time-weather {
+    height: 300px;
+  }
+
+  .to-do-header {
+    padding: 0.5rem;
+  }
+
+  .to-do-header h1 {
+    font-size: var(--medium-font-size);
+  }
+
+  .to-do-list {
+    height: 182px;
+  }
+
+  .to-do-title,
+  #to-do-input,
+  #to-do-input::placeholder {
+    font-size: var(--extra-small-font-size);
+  }
+
+  .to-do-alert-wrapper {
+    justify-content: center;
+  }
+
+  .time-digits,
+  .temperature-digits {
+    font-size: var(--extra-large-font-size);
+    height: 50px;
+  }
+
+  .temperature-emoji-wrapper img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .temperature-emoji {
+    top: -2px;
+  }
+}
+
+/* Laptops and Small screens*/
+@media (max-width: 1024px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* iPads, Tablets*/
+@media (max-width: 768px) {
+  .container {
+    max-width: 560px;
+  }
+
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      "Search"
+      "Time-and-Weather"
+      "Bookmarks"
+      "Todo";
+    gap: var(--extra-large-gap);
+  }
+
+  .bookmarks-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .to-do {
+    height: 478px;
+  }
+
+  .to-do-list {
+    height: 360px;
+  }
+
+  .to-do-item {
+    padding: 8px;
+  }
+}
+
+/* Mobile*/
+@media (max-width: 574px) {
+  .container {
+    max-width: 95%;
+  }
+}

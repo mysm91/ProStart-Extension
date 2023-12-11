@@ -1,0 +1,48 @@
+.bookmarks-wrapper {
+  grid-area: Bookmarks;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: max-content;
+  gap: var(--large-gap);
+}
+
+.bookmark-item {
+  width: 85px;
+  height: 85px;
+  background-color: var(--primary-color);
+  border-radius: var(--large-border-radius);
+  border: 1px solid var(--primary-color);
+  transition: var(--default-transition-time);
+  cursor: pointer;
+}
+
+.bookmark-item:hover {
+  border: 1px solid var(--secondary-color);
+}
+
+.bookmark-item .bookmark-apps,
+.bookmark-item .add-new-bookmark {
+  font-size: var(--largest-font-size);
+  font-weight: bold;
+}
+
+.bookmark-item .bookmark-apps {
+  color: var(--secondary-color);
+}
+
+.bookmark-item .add-new-bookmark {
+  color: var(--most-opacity);
+}
+
+.bookmark-item img {
+  width: 35px;
+  height: 35px;
+}
+
+.bookmark-item p {
+  width: 100%;
+  padding: 0 0.25rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}

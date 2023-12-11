@@ -1,0 +1,65 @@
+@import url(./fonts.css);
+@import url(./reset.css);
+@import url(./responsive.css);
+@import url(./to-do.css);
+@import url(./search.css);
+@import url(./bookmarks.css);
+@import url(./time-weather.css);
+
+.app-navbar {
+  padding: 0.5rem;
+  justify-content: flex-end;
+}
+
+.app-navbar a {
+  padding-right: 0.75rem;
+  color: var(--primary-color);
+  transition: var(--default-transition-time);
+}
+
+.app-navbar a:hover {
+  color: var(--secondary-color);
+}
+
+.app-navbar span {
+  font-size: var(--largest-font-size);
+}
+
+main {
+  height: calc(100vh - 96px);
+  max-height: 670px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: 1fr 6fr;
+  grid-template-areas:
+    "Todo Search Time-and-Weather"
+    "Todo Bookmarks Time-and-Weather";
+  gap: var(--large-gap);
+}
+
+/* Scroll bar style */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-top-left-radius: var(--extra-large-border-radius);
+  border-bottom-left-radius: var(--extra-large-border-radius);
+}
+
+::-webkit-scrollbar-track {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    to right bottom,
+    var(--container-background-color),
+    var(--light-color)
+  );
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}

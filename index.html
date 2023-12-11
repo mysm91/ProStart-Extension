@@ -15,13 +15,13 @@
     <link rel="icon" href="./assets/images/favicon.webp" />
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
   </head>
 
   <body>
     <div class="container">
       <!-- Navigation bar -->
-      <nav class="app-navbar d-flex">
+      <nav class="app-navbar d-flex align-center">
         <a href="#" class="d-flex"
           ><span class="material-symbols-outlined"> person </span></a
         >
@@ -30,10 +30,10 @@
         >
       </nav>
 
-      <main>
+      <main class="d-grid">
         <!-- To-do section -->
-        <section class="to-do d-flex">
-          <header class="to-do-header d-flex">
+        <section class="to-do d-flex justify-between flex-column">
+          <header class="to-do-header d-flex align-center justify-between">
             <h1>دست‌نویس</h1>
             <span class="material-symbols-outlined to-do-visibility">
               visibility_off
@@ -43,7 +43,10 @@
             <ul class="to-do-list"></ul>
           </div>
           <footer class="to-do-footer">
-            <form class="to-do-input-form d-flex" id="to-do-form">
+            <form
+              class="to-do-input-form d-flex justify-center"
+              id="to-do-form"
+            >
               <input
                 type="text"
                 id="to-do-input"
@@ -51,7 +54,10 @@
                 placeholder=" نوشتن تسک جدید"
                 autocomplete="off"
               />
-              <button type="submit" class="add-task-button d-flex">
+              <button
+                type="submit"
+                class="add-task-button d-flex justify-center align-center"
+              >
                 <span class="material-symbols-outlined add-task-icon">
                   add
                 </span>
@@ -87,14 +93,17 @@
         </section>
 
         <!-- Bookmarks section -->
-        <section class="bookmarks-wrapper">
-          <a class="bookmark-item d-flex" href="#">
+        <section class="bookmarks-wrapper d-grid">
+          <a
+            class="bookmark-item d-flex justify-center align-center flex-column"
+            href="#"
+          >
             <span class="material-symbols-outlined bookmark-apps"> apps </span>
             <p>دم‌دستی</p>
           </a>
 
           <a
-            class="bookmark-item d-flex"
+            class="bookmark-item d-flex justify-center align-center flex-column"
             href="https://www.shab.ir/"
             target="”_blank”"
           >
@@ -103,7 +112,7 @@
           </a>
 
           <a
-            class="bookmark-item d-flex"
+            class="bookmark-item d-flex justify-center align-center flex-column"
             href="https://snapp.ir/"
             target="”_blank”"
           >
@@ -112,7 +121,7 @@
           </a>
 
           <a
-            class="bookmark-item d-flex"
+            class="bookmark-item d-flex justify-center align-center flex-column"
             href="https://cafebazaar.ir/app"
             target="”_blank”"
           >
@@ -121,7 +130,7 @@
           </a>
 
           <a
-            class="bookmark-item d-flex"
+            class="bookmark-item d-flex justify-center align-center flex-column"
             href="https://www.digikala.com/"
             target="”_blank”"
           >
@@ -130,7 +139,7 @@
           </a>
 
           <a
-            class="bookmark-item d-flex"
+            class="bookmark-item d-flex justify-center align-center flex-column"
             href="https://www.alibaba.ir/"
             target="”_blank”"
           >
@@ -139,7 +148,7 @@
           </a>
 
           <a
-            class="bookmark-item d-flex"
+            class="bookmark-item d-flex justify-center align-center flex-column"
             href="https://www.zoomit.ir/"
             target="”_blank”"
           >
@@ -147,31 +156,41 @@
             <p>زومیت</p>
           </a>
 
-          <div class="bookmark-item d-flex">
+          <div
+            class="bookmark-item d-flex justify-center align-center flex-column"
+          >
             <span class="material-symbols-outlined add-new-bookmark">
               add
             </span>
           </div>
 
-          <div class="bookmark-item d-flex">
+          <div
+            class="bookmark-item d-flex justify-center align-center flex-column"
+          >
             <span class="material-symbols-outlined add-new-bookmark">
               add
             </span>
           </div>
 
-          <div class="bookmark-item d-flex">
+          <div
+            class="bookmark-item d-flex justify-center align-center flex-column"
+          >
             <span class="material-symbols-outlined add-new-bookmark">
               add
             </span>
           </div>
 
-          <div class="bookmark-item d-flex">
+          <div
+            class="bookmark-item d-flex justify-center align-center flex-column"
+          >
             <span class="material-symbols-outlined add-new-bookmark">
               add
             </span>
           </div>
 
-          <div class="bookmark-item d-flex">
+          <div
+            class="bookmark-item d-flex justify-center align-center flex-column"
+          >
             <span class="material-symbols-outlined add-new-bookmark">
               add
             </span>
@@ -179,9 +198,9 @@
         </section>
 
         <!-- Time and weather section -->
-        <section class="time-weather">
-          <div class="time-wrapper d-flex"></div>
-          <div class="weather-wrapper d-flex"></div>
+        <section class="time-weather d-grid">
+          <div class="time-wrapper d-flex align-center flex-column"></div>
+          <div class="weather-wrapper d-flex align-center flex-column"></div>
         </section>
       </main>
     </div>

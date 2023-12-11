@@ -99,13 +99,16 @@ function createTaskElement(taskTitle, taskId) {
   // Add class(es) to the created elements
   addClass(createTaskItem, "to-do-item");
   addClass(createTaskItem, "d-flex");
+  addClass(createTaskItem, "align-center");
   addClass(createTaskBox, "to-do-box");
   addClass(createTasKTitle, "to-do-title");
   addClass(createDeleteIcon, "material-symbols-outlined");
   addClass(createDeleteIcon, "to-do-delete-icon");
   addClass(createDeleteIcon, "d-flex");
+  addClass(createDeleteIcon, "align-center");
   addClass(createDeleteOptions, "to-do-delete-operation");
   addClass(createDeleteOptions, "d-flex");
+  addClass(createDeleteOptions, "align-center");
   addClass(confirmDeleteIcon, "material-symbols-outlined");
   addClass(confirmDeleteIcon, "task-delete-confirm");
   addClass(cancelDeleteIcon, "material-symbols-outlined");

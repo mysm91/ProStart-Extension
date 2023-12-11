@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #3d518f;
+  --container-background-color: #c4def7;
+  --light-color: #cef0d9;
+  --dark-color: #808080;
+  --least-opacity: rgba(128, 128, 128, 0.1);
+  --medium-opacity: rgba(128, 128, 128, 0.25);
+  --most-opacity: rgba(128, 128, 128, 0.5);
+  --primary-font: "vazirmatn";
+  --extra-large-gap: 1rem;
+  --large-gap: 0.5rem;
+  --medium-gap: 0.25rem;
+  --small-gap: 0.125rem;
+  --largest-font-size: 2rem;
+  --extra-large-font-size: 1.5rem;
+  --large-font-size: 1.2rem;
+  --medium-font-size: 1rem;
+  --small-font-size: 0.9rem;
+  --extra-small-font-size: 0.8rem;
+  --smallest-font-size: 0.6rem;
+  --extra-large-border-radius: 1.5rem;
+  --large-border-radius: 1rem;
+  --medium-border-radius: 0.75rem;
+  --small-border-radius: 0.5rem;
+  --extra-small-border-radius: 0.25rem;
+  --default-transition-time: 0.5s;
+}
+
+body {
+  background-color: var(--container-background-color);
+  font-family: var(--primary-font);
+  direction: rtl;
+}
+
+input,
+select {
+  font-family: var(--primary-font);
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1124px;
+  margin: 0 auto;
+}

@@ -1,0 +1,122 @@
+.time-weather {
+  grid-area: Time-and-Weather;
+  background-color: var(--primary-color);
+  height: 287px;
+  border-radius: var(--extra-large-border-radius);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.time-wrapper,
+.weather-wrapper {
+  height: 165px;
+  border-bottom: 1px solid var(--least-opacity);
+  padding: 8px 6px;
+}
+
+.time-weather-error {
+  text-align: center;
+}
+
+.time-wrapper {
+  border-left: 1px solid var(--least-opacity);
+}
+
+.time-wrapper,
+.weather-wrapper {
+  gap: var(--medium-gap);
+}
+
+.time-digits {
+  color: #266df7;
+  font-size: var(--largest-font-size);
+  font-weight: 900;
+}
+
+.date-shamsi {
+  font-size: var(--extra-small-font-size);
+  font-weight: 600;
+}
+
+.date-other-calendar-wrapper,
+.temperature-min-max-wrapper {
+  text-align: center;
+  color: var(--dark-color);
+  gap: var(--medium-gap);
+}
+
+.date-other-calendar-wrapper {
+  font-size: var(--smallest-font-size);
+  height: 2rem;
+}
+
+.time-vertical-bar {
+  height: 0.75rem;
+  border-left: 1px solid var(--dark-color);
+}
+
+.timer-praying-timetable-wrapper {
+  gap: var(--medium-gap);
+  flex-wrap: wrap;
+}
+
+.timer,
+.praying-timetable,
+.temperature-forecast {
+  font-size: var(--smallest-font-size);
+  font-weight: 500;
+  color: var(--dark-color);
+  border-radius: var(--extra-large-border-radius);
+  border: 1px solid var(--least-opacity);
+  outline: 0;
+  padding: 0.25rem 0;
+}
+
+.temperature-wrapper {
+  gap: var(--large-gap);
+}
+
+.temperature-digits {
+  font-size: var(--largest-font-size);
+  font-weight: 900;
+  color: #9da0af;
+}
+
+.temperature-emoji-wrapper {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.temperature-emoji {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.temperature-description-wrapper {
+  gap: var(--small-gap);
+}
+
+.temperature-description-text {
+  font-size: var(--extra-small-font-size);
+  font-weight: 600;
+}
+
+.temperature-description-emoji {
+  font-size: var(--extra-small-font-size);
+}
+
+.temperature-min-max-wrapper {
+  font-size: 0.7rem;
+  height: 2rem;
+}
+
+.max-temperature-wrapper,
+.min-temperature-wrapper {
+  gap: var(--small-gap);
+}
+
+.max-temperature-digits,
+.min-temperature-digits {
+  font-weight: bold;
+}
