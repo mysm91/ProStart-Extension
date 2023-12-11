@@ -16,6 +16,7 @@
   --light-color: #cef0d9;
   --dark-color: #808080;
   --least-opacity: rgba(128, 128, 128, 0.1);
+  --medium-opacity: rgba(128, 128, 128, 0.25);
   --most-opacity: rgba(128, 128, 128, 0.5);
   --primary-font: "vazirmatn";
   --large-gap: 0.5rem;
@@ -56,7 +57,6 @@ a {
 
 .container {
   max-width: 1124px;
-  /* height: 100vh; */
   margin: 0 auto;
 }
 
@@ -86,11 +86,10 @@ a {
 
 main {
   width: 100%;
-  /* height: calc(100vh - 100px); */
-  height: 540px;
+  height: calc(100vh - 100px);
+  max-height: 540px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
-  /* grid-template-rows: max(1fr); */
   grid-template-areas: "Todo Search-and-Bookmarks Time-and-Weather";
   gap: var(--large-gap);
 }
@@ -111,7 +110,7 @@ main {
   align-items: center;
   padding: 0.7rem;
   font-weight: bold;
-  border-bottom: 1px solid var(--least-opacity);
+  border-bottom: 1px solid var(--medium-opacity);
 }
 
 .to-do-header h1 {
@@ -135,8 +134,8 @@ main {
 }
 
 .to-do-list {
-  /* max-height: calc(100vh - 240px); */
-  max-height: 398px;
+  height: calc(100vh - 225px);
+  max-height: 500px;
   overflow: auto;
 }
 
@@ -146,8 +145,8 @@ main {
   display: flex;
   align-items: center;
   gap: var(--large-gap);
-  border: 1px solid var(--least-opacity);
-  padding: 5px;
+  border: 1px solid var(--medium-opacity);
+  padding: 4px;
   border-radius: var(--medium-border-radius);
   font-size: var(--medium-font-size);
 }
@@ -166,17 +165,16 @@ main {
 
 .to-do-delete-icon {
   position: absolute;
-  left: 4px;
+  left: 0;
   display: flex;
   align-items: center;
   visibility: hidden;
   opacity: 0;
-  transition: 0.5s;
 }
 
 .to-do-delete-operation {
   position: absolute;
-  left: 20px;
+  left: 28px;
   display: flex;
   align-items: center;
   gap: var(--small-gap);
@@ -193,7 +191,7 @@ main {
 .to-do-delete-icon {
   font-size: var(--large-font-size);
   color: var(--most-opacity);
-  padding: 5px 0;
+  padding: 4px;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -233,7 +231,7 @@ main {
   width: 100%;
   padding: 10px;
   margin: 0 auto;
-  border-top: 1px solid var(--least-opacity);
+  border-top: 1px solid var(--medium-opacity);
 }
 
 .to-do-input-form {
@@ -242,12 +240,16 @@ main {
   position: relative;
 }
 
-.to-do-input {
+#to-do-input {
   padding: 5px;
   width: 95%;
   border-radius: var(--small-border-radius);
   outline: 0;
-  border: 1px solid var(--least-opacity);
+  border: 1px solid var(--medium-opacity);
+}
+
+#to-do-input::placeholder {
+  color: var(--most-opacity);
 }
 
 .add-task-button {
@@ -269,10 +271,6 @@ main {
 
 .add-task-button:hover .add-task-icon {
   color: var(--dark-color);
-}
-
-.to-do-input-form span::placeholder {
-  color: var(--most-opacity);
 }
 
 .to-do-alert-wrapper {
@@ -423,8 +421,6 @@ main {
 
 .time-weather {
   grid-area: Time-and-Weather;
-  /* display: flex;
-  justify-content: center; */
   background-color: var(--primary-color);
   height: 289px;
   border-radius: var(--extra-large-border-radius);
@@ -572,7 +568,7 @@ main {
 
 /* Scroll bar style */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track,
@@ -596,4 +592,111 @@ main {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary-color);
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 950px;
+  }
+
+  main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "Search-and-Bookmarks Search-and-Bookmarks"
+      "Todo Time-and-Weather";
+    gap: 16px;
+  }
+
+  .search-form {
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .search-input {
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding-right: 40px;
+  }
+
+  .search-input::placeholder {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .search-logo {
+    height: 22px;
+    width: 22px;
+    top: 34px;
+  }
+
+  .search-icon {
+    top: 26px;
+  }
+
+  .bookmark-item {
+    width: auto;
+  }
+
+  .bookmark-item .bookmark-apps,
+  .bookmark-item .add-new-bookmark {
+    font-size: 1.5rem;
+  }
+
+  .bookmark-item img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .bookmark-item p {
+    font-size: var(--small-font-size);
+  }
+
+  .to-do {
+    height: 375px;
+    padding-bottom: 50px;
+  }
+
+  .to-do-header h1 {
+    font-size: var(--medium-font-size);
+  }
+
+  .to-do-list {
+    height: 250px;
+  }
+
+  .to-do-title {
+    font-size: var(--small-font-size);
+  }
+
+  #to-do-input {
+    font-size: var(--small-font-size);
+  }
+
+  .add-task-button {
+    width: 30px;
+    height: 30px;
+  }
+
+  #to-do-input::placeholder {
+    font-size: var(--small-font-size);
+  }
+
+  .to-do-alert-wrapper {
+    justify-content: center;
+  }
+
+  .time-weather {
+    height: 375px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 720px;
+  }
 }
