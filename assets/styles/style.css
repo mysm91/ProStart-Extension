@@ -9,14 +9,39 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #fff;
+  --secondary-color: #3d518f;
+  --container-background-color: #c4def7;
+  --light-color: #cef0d9;
+  --dark-color: #808080;
+  --least-opacity: rgba(128, 128, 128, 0.1);
+  --most-opacity: rgba(128, 128, 128, 0.5);
+  --primary-font: "vazirmatn";
+  --large-gap: 0.5rem;
+  --medium-gap: 0.25rem;
+  --small-gap: 0.125rem;
+  --extra-large-font-size: 2rem;
+  --large-font-size: 1.2rem;
+  --medium-font-size: 1rem;
+  --small-font-size: 0.8rem;
+  --extra-small-font-size: 0.6rem;
+  --extra-large-border-radius: 1.5rem;
+  --large-border-radius: 1rem;
+  --medium-border-radius: 0.75rem;
+  --small-border-radius: 0.5rem;
+  --extra-small-border-radius: 0.25rem;
+}
+
 body {
-  background-color: #c4def7;
-  font-family: "vazirmatn";
+  background-color: var(--container-background-color);
+  font-family: var(--primary-font);
   direction: rtl;
 }
 
-input {
-  font-family: "vazirmatn";
+input,
+select {
+  font-family: var(--primary-font);
 }
 
 ul,
@@ -45,18 +70,18 @@ a {
 
 .app-navbar a {
   padding-right: 10px;
-  font-size: 2rem;
-  color: white;
+  font-size: var(--extra-large-font-size);
+  color: var(--primary-color);
   display: flex;
   transition: 0.5s;
 }
 
 .app-navbar a:hover {
-  color: #3d518f;
+  color: var(--secondary-color);
 }
 
 .app-navbar span {
-  font-size: 2rem;
+  font-size: var(--extra-large-font-size);
 }
 
 main {
@@ -67,14 +92,14 @@ main {
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
   /* grid-template-rows: max(1fr); */
   grid-template-areas: "Todo Search-and-Bookmarks Time-and-Weather";
-  gap: 8px;
+  gap: var(--large-gap);
 }
 
 .to-do {
   grid-area: Todo;
   height: 100%;
-  background-color: white;
-  border-radius: 24px;
+  background-color: var(--primary-color);
+  border-radius: var(--extra-large-border-radius);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -83,23 +108,25 @@ main {
 .to-do-header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  align-items: center;
+  padding: 0.7rem;
   font-weight: bold;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  border-bottom: 1px solid var(--least-opacity);
 }
 
-.to-do-header h3 {
-  font-size: 1.5rem;
+.to-do-header h1 {
+  font-size: var(--large-font-size);
   font-weight: bold;
 }
 
 .to-do-header span {
-  font-size: 1rem;
+  font-size: var(--medium-font-size);
   font-weight: bold;
-  padding: 10px;
-  color: #3d518f;
-  background-color: rgba(128, 128, 128, 0.15);
-  border-radius: 8px;
+  padding: 8px;
+  color: var(--secondary-color);
+  background-color: var(--least-opacity);
+  border-radius: var(--small-border-radius);
+  cursor: pointer;
 }
 
 .to-do-list-wrapper {
@@ -109,8 +136,7 @@ main {
 
 .to-do-list {
   /* max-height: calc(100vh - 240px); */
-  max-height: 460px;
-  /* background-color: red; */
+  max-height: 398px;
   overflow: auto;
 }
 
@@ -119,23 +145,23 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(128, 128, 128, 0.3);
+  gap: var(--large-gap);
+  border: 1px solid var(--least-opacity);
   padding: 5px;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: var(--medium-border-radius);
+  font-size: var(--medium-font-size);
 }
 
 .to-do-item:not(:last-child) {
-  margin-bottom: 9px;
+  margin-bottom: 0.5rem;
 }
 
 .to-do-box {
-  width: 18px;
-  height: 18px;
-  background-color: #cef0d9;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--light-color);
   border: 1px solid #60ce83;
-  border-radius: 4px;
+  border-radius: var(--extra-small-border-radius);
 }
 
 .to-do-delete-icon {
@@ -143,18 +169,17 @@ main {
   left: 4px;
   display: flex;
   align-items: center;
-  gap: 5px;
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
-  /* z-index: 1; */
 }
 
 .to-do-delete-operation {
   position: absolute;
-  left: 26px;
+  left: 20px;
   display: flex;
-  gap: 2px;
+  align-items: center;
+  gap: var(--small-gap);
   transform: scaleX(0);
   transform-origin: left center;
   transition: 0.5s;
@@ -166,15 +191,15 @@ main {
 }
 
 .to-do-delete-icon {
-  font-size: 1.5rem;
-  color: rgba(128, 128, 128, 0.6);
+  font-size: var(--large-font-size);
+  color: var(--most-opacity);
   padding: 5px 0;
   cursor: pointer;
   transition: 0.5s;
 }
 
 .to-do-delete-icon:hover {
-  color: rgb(92, 91, 91);
+  color: var(--dark-color);
 }
 
 .to-do-item:hover .to-do-delete-icon {
@@ -184,14 +209,15 @@ main {
 
 .task-delete-confirm,
 .task-delete-cancel {
+  font-size: var(--large-font-size);
   padding: 2px;
-  border-radius: 4px;
+  border-radius: var(--extra-small-border-radius);
   transition: 0.5s;
 }
 
 .task-delete-confirm:hover,
 .task-delete-cancel:hover {
-  background-color: #cef0d9;
+  background-color: var(--light-color);
 }
 
 .to-do-title {
@@ -200,14 +226,14 @@ main {
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
-  font-size: 1rem;
+  font-size: var(--medium-font-size);
 }
 
 .to-do-footer {
   width: 100%;
   padding: 10px;
   margin: 0 auto;
-  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  border-top: 1px solid var(--least-opacity);
 }
 
 .to-do-input-form {
@@ -219,9 +245,9 @@ main {
 .to-do-input {
   padding: 5px;
   width: 95%;
-  border-radius: 8px;
+  border-radius: var(--small-border-radius);
   outline: 0;
-  border: 1px solid rgba(128, 128, 128, 0.3);
+  border: 1px solid var(--least-opacity);
 }
 
 .add-task-button {
@@ -238,44 +264,44 @@ main {
 }
 
 .add-task-icon {
-  color: rgba(128, 128, 128, 0.6);
+  color: var(--most-opacity);
 }
 
 .add-task-button:hover .add-task-icon {
-  color: rgb(128, 128, 128);
+  color: var(--dark-color);
 }
 
 .to-do-input-form span::placeholder {
-  color: rgba(128, 128, 128, 0.3);
+  color: var(--most-opacity);
 }
 
 .to-do-alert-wrapper {
   position: absolute;
   display: flex;
   align-items: flex-end;
-  gap: 5px;
+  gap: var(--medium-gap);
   width: 95%;
   padding: 5px;
-  border-radius: 8px;
+  border-radius: var(--small-border-radius);
   backdrop-filter: blur(10px);
   background: linear-gradient(
     to right bottom,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.1)
+    var(--most-opacity),
+    var(--least-opacity)
   );
-  border: 1px solid rgba(128, 128, 128, 0.3);
+  border: 1px solid var(--most-opacity);
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
 }
 
 .to-do-alert-text {
-  font-size: 0.8rem;
+  font-size: var(--small-font-size);
   text-align: center;
 }
 
 .to-do-alert-icon {
-  color: red;
+  color: #ff0000;
 }
 
 .search-bookmarks {
@@ -284,8 +310,8 @@ main {
 
 .search-wrapper {
   position: relative;
-  background-color: white;
-  border-radius: 24px;
+  background-color: var(--primary-color);
+  border-radius: var(--extra-large-border-radius);
   margin-bottom: 10px;
 }
 
@@ -296,16 +322,16 @@ main {
 .search-input {
   width: 100%;
   padding: 13px;
-  font-size: 1rem;
+  font-size: var(--medium-font-size);
   padding-right: 40px;
-  border-radius: 24px;
+  border-radius: var(--extra-large-border-radius);
   border: none;
   outline: 0;
   background-color: #f3f4f6;
 }
 
 .search-input::placeholder {
-  font-size: 1rem;
+  font-size: var(--medium-font-size);
 }
 
 .search-logo {
@@ -336,17 +362,17 @@ main {
   position: absolute;
   left: 32px;
   top: 33px;
-  color: white;
-  background-color: #3d518f;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
   padding: 5px 12px;
-  border-radius: 24px;
+  border-radius: var(--extra-large-border-radius);
   cursor: pointer;
 }
 
 .bookmarks-wrapper {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
+  gap: var(--large-gap);
 }
 
 .bookmark-item {
@@ -354,31 +380,31 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 82px;
-  height: 82px;
-  background-color: white;
-  border-radius: 16px;
-  border: 1px solid white;
+  width: 85px;
+  height: 85px;
+  background-color: var(--primary-color);
+  border-radius: var(--large-border-radius);
+  border: 1px solid var(--primary-color);
   transition: 0.5s;
   cursor: pointer;
 }
 
 .bookmark-item:hover {
-  border: 1px solid #3d518f;
+  border: 1px solid var(--secondary-color);
 }
 
 .bookmark-item .bookmark-apps,
 .bookmark-item .add-new-bookmark {
-  font-size: 1.8rem;
+  font-size: var(--extra-large-font-size);
   font-weight: bold;
 }
 
 .bookmark-item .bookmark-apps {
-  color: #3d518f;
+  color: var(--secondary-color);
 }
 
 .bookmark-item .add-new-bookmark {
-  color: #babdc6;
+  color: var(--most-opacity);
 }
 
 .bookmark-item img {
@@ -397,18 +423,20 @@ main {
 
 .time-weather {
   grid-area: Time-and-Weather;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  height: 285px;
-  border-radius: 24px;
+  /* display: flex;
+  justify-content: center; */
+  background-color: var(--primary-color);
+  height: 289px;
+  border-radius: var(--extra-large-border-radius);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .time-wrapper,
 .weather-wrapper {
-  height: 220px;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-  padding: 10px 6px;
+  height: 165px;
+  border-bottom: 1px solid var(--least-opacity);
+  padding: 8px 6px;
 }
 
 .time-weather-error {
@@ -416,7 +444,7 @@ main {
 }
 
 .time-wrapper {
-  border-left: 1px solid rgba(128, 128, 128, 0.3);
+  border-left: 1px solid var(--least-opacity);
 }
 
 .time-wrapper,
@@ -424,54 +452,55 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: var(--medium-gap);
 }
 
 .time-digits {
   color: #266df7;
-  font-size: 2.2rem;
+  font-size: var(--extra-large-font-size);
   font-weight: 900;
 }
 
 .date-shamsi {
-  font-size: 1rem;
-  font-weight: 900;
+  font-size: var(--small-font-size);
+  font-weight: 600;
 }
 
 .date-other-calendar-wrapper,
 .temperature-min-max-wrapper {
   display: flex;
-  align-items: flex-start;
   text-align: center;
-  color: #9da0af;
-  gap: 5px;
+  align-items: center;
+  color: var(--dark-color);
+  gap: var(--medium-gap);
 }
 
 .date-other-calendar-wrapper {
-  font-size: 0.7rem;
+  font-size: var(--extra-small-font-size);
+  height: 32px;
 }
 
 .time-vertical-bar {
-  height: 10px;
-  border-left: 1px solid #9da0af;
+  height: 12px;
+  border-left: 1px solid var(--dark-color);
 }
 
 .timer-praying-timetable-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: var(--medium-gap);
   flex-wrap: wrap;
 }
 
 .timer,
 .praying-timetable,
 .temperature-forecast {
-  font-family: "vazirmatn";
+  font-size: var(--extra-small-font-size);
   font-weight: 500;
-  color: #535c80;
-  border-radius: 24px;
-  border: 1px solid #e0e0e0;
+  color: var(--dark-color);
+  border-radius: var(--extra-large-border-radius);
+  border: 1px solid var(--least-opacity);
   outline: 0;
   padding: 3px 0;
 }
@@ -480,11 +509,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10%;
+  gap: var(--large-gap);
 }
 
 .temperature-digits {
-  font-size: 2.2rem;
+  font-size: var(--extra-large-font-size);
   font-weight: 900;
   color: #9da0af;
 }
@@ -498,33 +527,34 @@ main {
 .temperature-emoji {
   position: absolute;
   right: -10px;
-  top: -8px;
+  top: -10px;
 }
 
 .temperature-description-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: var(--small-gap);
 }
 
 .temperature-description-text {
-  font-size: 1rem;
-  font-weight: 900;
+  font-size: var(--small-font-size);
+  font-weight: 600;
 }
 
 .temperature-description-emoji {
-  font-size: 1rem;
+  font-size: var(--small-font-size);
 }
 
 .temperature-min-max-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .temperature-min-max-wrapper {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  height: 32px;
 }
 
 .max-temperature-wrapper,
@@ -532,29 +562,38 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: var(--small-gap);
+}
+
+.max-temperature-digits,
+.min-temperature-digits {
+  font-weight: bold;
 }
 
 /* Scroll bar style */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
+  border-top-left-radius: var(--extra-large-border-radius);
+  border-bottom-left-radius: var(--extra-large-border-radius);
 }
 
 ::-webkit-scrollbar-track {
   backdrop-filter: blur(10px);
-  background: linear-gradient(to right bottom, #c4def7, #c4def7);
+  background: linear-gradient(
+    to right bottom,
+    var(--container-background-color),
+    var(--light-color)
+  );
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(128, 128, 128);
+  background: var(--dark-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #535c80;
+  background: var(--secondary-color);
 }

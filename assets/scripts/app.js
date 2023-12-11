@@ -4,11 +4,14 @@ const toDoList = toDo.querySelector(".to-do-list");
 const toDoForm = toDo.querySelector(".to-do-input-form");
 const toDoInput = toDo.querySelector(".to-do-input");
 const toDoAlert = toDo.querySelector(".to-do-alert-wrapper");
+const toDoVisibility = toDo.querySelector(".to-do-visibility");
 // const toDoDeleteButton = toDo.querySelector(".to-do-item"); ////
 // const toDoDeleteOptions = toDo.querySelector(".to-do-delete-operation"); ////
 
 const tasks = oldItems(); // Check local storage as the page loads
-let taskId;
+let taskId = null;
+
+toDoVisibility.addEventListener("click", visibilityButtonHandler);
 
 // Add a new task
 toDoForm.addEventListener("submit", (e) => {
@@ -17,19 +20,6 @@ toDoForm.addEventListener("submit", (e) => {
   toDoInput.value = "";
   toDoInput.focus();
 });
-
-// Validation of input value and render task
-function taskRender() {
-  const taskInputValue = toDoInput.value.trim();
-  setTaskId();
-
-  if (!taskInputValue) {
-    toDoAlertHandler();
-  } else {
-    crateTaskElement(taskInputValue, taskId);
-    addTaskToStorage(taskInputValue);
-  }
-}
 
 // Delete a task
 toDo.addEventListener("click", (e) => {
@@ -78,6 +68,27 @@ toDo.addEventListener("click", (e) => {
 //   //   "scaleX(0)";
 //   console.log("salam");
 // });
+
+function visibilityButtonHandler() {
+  if (toDoVisibility.innerText === "visibility_off") {
+    toDoVisibility.innerText = "visibility";
+  } else {
+    toDoVisibility.innerText = "visibility_off";
+  }
+}
+
+// Validation of input value and render task
+function taskRender() {
+  const taskInputValue = toDoInput.value.trim();
+  setTaskId();
+
+  if (!taskInputValue) {
+    toDoAlertHandler();
+  } else {
+    crateTaskElement(taskInputValue, taskId);
+    addTaskToStorage(taskInputValue);
+  }
+}
 
 // Create task element
 function crateTaskElement(taskTitle, taskId) {
@@ -239,7 +250,7 @@ function msToTime(duration) {
 }
 
 setTimeout(fetchTimeAndDate, 0);
-setInterval(fetchTimeAndDate, 1000);
+setInterval(fetchTimeAndDate, 100000);
 
 // Select DOM elements
 const weatherSection = document.querySelector(".weather-wrapper");
@@ -275,7 +286,7 @@ function renderWeather(data) {
   weatherSection.innerHTML = `
   <div class="temperature-wrapper">
               <h2 class="temperature-digits">${currentTempRound}°</h2>
-              <div class="temperature-emoji-wrapper">${weatherIcon("50d")}</div>
+              <div class="temperature-emoji-wrapper">${weatherIcon("01n")}</div>
             </div>
             <div class="temperature-description-wrapper">
               <div class="temperature-description-text">${descriptionText}</div>
@@ -302,4 +313,4 @@ function weatherIcon(iconCode) {
 }
 
 setTimeout(fetchWeather, 0);
-setInterval(fetchWeather, 60000);
+setInterval(fetchWeather, 600000);
