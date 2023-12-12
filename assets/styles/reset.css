@@ -11,10 +11,15 @@
   --secondary-color: #3d518f;
   --container-background-color: #c4def7;
   --light-color: #cef0d9;
+  --lighter-color: #f3f4f6;
   --dark-color: #808080;
   --least-opacity: rgba(128, 128, 128, 0.1);
   --medium-opacity: rgba(128, 128, 128, 0.25);
   --most-opacity: rgba(128, 128, 128, 0.5);
+  --to-do-box-color: #60ce83;
+  --warning-color: #ff0000;
+  --time-digits-color: #266df7;
+  --temperature-digits-color: #9da0af;
   --primary-font: "vazirmatn";
   --extra-large-gap: 1rem;
   --large-gap: 0.5rem;

@@ -50,7 +50,7 @@
   width: 1rem;
   height: 1rem;
   background-color: var(--light-color);
-  border: 1px solid #60ce83;
+  border: 1px solid var(--to-do-box-color);
   border-radius: var(--extra-small-border-radius);
 }
 
@@ -177,5 +177,5 @@
 }
 
 .to-do-alert-icon {
-  color: #ff0000;
+  color: var(--warning-color);
 }

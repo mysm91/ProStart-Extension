@@ -27,7 +27,7 @@
 }
 
 .time-digits {
-  color: #266df7;
+  color: var(--time-digits-color);
   font-size: var(--largest-font-size);
   font-weight: 900;
 }
@@ -78,7 +78,7 @@
 .temperature-digits {
   font-size: var(--largest-font-size);
   font-weight: 900;
-  color: #9da0af;
+  color: var(--temperature-digits-color);
 }
 
 .temperature-emoji-wrapper {
